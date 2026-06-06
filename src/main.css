@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-copper-300: #FDBA74;
+  --color-copper-400: #F97316;
+  --color-copper-500: #EA580C;
+  --color-copper-600: #C2410C;
+  --font-family-sans: 'Barlow', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-family-display: 'Barlow Condensed', 'Barlow', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  select option { background-color: #F5F5F5; color: #1C1C1E; }
+
+  h1, h2 {
+    font-family: 'Barlow Condensed', var(--font-family-sans);
+  }
+}
+
+/* ─── Wrapper central ─── */
+.wrap {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 28px;
+  padding-right: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Border-gradient compartilhado ─── */
+.border-gradient {
+  position: relative;
+}
+.border-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  background: linear-gradient(225deg, rgba(249,115,22,0) 0%, rgba(249,115,22,0.25) 50%, rgba(249,115,22,0) 100%);
+  pointer-events: none;
+}
+
+/* ─── Scroll-reveal ─── */
+.animate-on-scroll { animation-play-state: paused !important; }
+.animate-on-scroll.animate { animation-play-state: running !important; }
+
+/* ─── Utilities de opacidade ─── */
+.bg-white\/2  { background-color: rgba(0,0,0,0.02) !important; }
+.bg-white\/3  { background-color: rgba(0,0,0,0.02) !important; }
+.bg-white\/4  { background-color: rgba(0,0,0,0.03) !important; }
+.bg-white\/6  { background-color: rgba(0,0,0,0.04) !important; }
+.bg-white\/8  { background-color: rgba(0,0,0,0.05) !important; }
+
+.border-white\/5  { border-color: #E5E5E5 !important; }
+.border-white\/6  { border-color: #E5E5E5 !important; }
+.border-white\/7  { border-color: #E5E5E5 !important; }
+.border-white\/8  { border-color: #E5E5E5 !important; }
+
+.bg-copper-400\/5  { background-color: rgba(249,115,22,0.05) !important; }
+.bg-copper-400\/8  { background-color: rgba(249,115,22,0.08) !important; }
+.bg-copper-400\/12 { background-color: rgba(249,115,22,0.12) !important; }
+
+.hover\:bg-white\/6:hover  { background-color: rgba(0,0,0,0.04) !important; }
+.hover\:bg-white\/8:hover  { background-color: rgba(0,0,0,0.05) !important; }
+.hover\:bg-copper-400\/8:hover { background-color: rgba(249,115,22,0.08) !important; }
+.divide-white\/6 > * + * { border-color: #E5E5E5; }
+
+/* ─── Shimmer sweep — todos os botões primários ─── */
+.btn-primary,
+.btn-copper,
+.btn-primary-full {
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after,
+.btn-copper::after,
+.btn-primary-full::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.28) 50%, transparent 65%);
+  transform: translateX(-120%);
+  animation: btn-sweep 3s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes btn-sweep {
+  0%, 25%  { transform: translateX(-120%); }
+  65%, 100% { transform: translateX(120%); }
+}
