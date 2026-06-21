@@ -19,11 +19,11 @@
         <div class="summary-banner page-anim page-anim-4">
           <div class="summary-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="1.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Mensalidade fixa por plano</span>
+            <span>Cobranca avulsa por corrida</span>
           </div>
           <div class="summary-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="1.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            <span>Relatório incluso</span>
+            <span>Nota fiscal em toda corrida</span>
           </div>
           <div class="summary-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -48,8 +48,8 @@
 
         <!-- Rodapé legal -->
         <div class="legal-footer" v-reveal>
-          <p>WFM Transportes · CNPJ 56.265.821/0001-04 · São Paulo, SP</p>
-          <p>atendimento@wfmtransportes.com.br · (64) 9921-6904</p>
+          <p>Silva Transportes · CNPJ 52.815.411/0001-39 · São Paulo, SP</p>
+          <p>atendimentosilvatransportes@intermediacoesb2b.com.br · (11) 92015-8313</p>
           <p style="margin-top:4px;font-size:12px;color:#404040">Foro competente: Comarca de São Paulo, SP</p>
         </div>
       </div>
@@ -62,19 +62,19 @@
 const terms = [
   {
     title: 'Sobre o serviço',
-    text: 'A WFM Transportes (CNPJ 56.265.821/0001-04) oferece serviço de intermediação de transporte executivo corporativo, conectando empresas contratantes a motoristas parceiros verificados.',
+    text: 'A Silva Transportes (CNPJ 52.815.411/0001-39) oferece serviço de intermediação de transporte executivo corporativo, conectando empresas contratantes a motoristas parceiros verificados.',
   },
   {
     title: 'Escopo do serviço',
     text: 'Nossos serviços incluem: agendamento de corridas executivas, despacho de motoristas parceiros verificados, gestão centralizada da operação e emissão de relatórios periódicos.',
   },
   {
-    title: 'Modelo de cobrança',
-    text: 'Cobramos mensalidade conforme o plano contratado (Essencial, Corporativo ou Premium). O valor é fixo por mês, independente do número exato de corridas realizadas dentro do limite do plano.',
+    title: 'Modelo de contratacao',
+    text: 'O modelo e avulso, sem planos mensais. O cliente solicita a corrida informando origem, destino, data, horario e categoria do veiculo. O valor e informado antes da confirmacao e cobrado por corrida realizada, com emissao de nota fiscal.',
   },
   {
     title: 'Responsabilidades',
-    text: 'A WFM Transportes atua como intermediária. Os motoristas parceiros são responsáveis pela condução. A WFM Transportes se responsabiliza pela gestão, qualidade do atendimento e cumprimento dos padrões corporativos.',
+    text: 'A Silva Transportes atua como intermediária. Os motoristas parceiros são responsáveis pela condução. A Silva Transportes se responsabiliza pela gestão, qualidade do atendimento e cumprimento dos padrões corporativos.',
   },
   {
     title: 'Formalização',

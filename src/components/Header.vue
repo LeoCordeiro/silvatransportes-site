@@ -5,7 +5,7 @@
 
       <!-- Logo -->
       <router-link to="/" class="logo-area">
-        <img src="/logo.png" alt="WFM Transportes" class="logo-img" />
+        <img src="/logo.png" alt="Silva Transportes" class="logo-img" />
       </router-link>
 
       <!-- Nav pills -->
@@ -22,8 +22,8 @@
       <!-- Ações direita -->
       <div class="header-actions">
         <router-link to="/contato" class="cta-pill">
-          Solicitar proposta
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m0 0-7-7m7 7-7 7"/></svg>
+          Solicitar corrida
+          <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m0 0-7-7m7 7-7 7"/></svg>
         </router-link>
 
         <!-- Hamburger mobile -->
@@ -48,7 +48,7 @@
         </router-link>
         <div class="mobile-cta-wrap">
           <router-link to="/contato" class="mobile-cta" @click="open=false">
-            Solicitar proposta
+            Solicitar corrida
           </router-link>
         </div>
       </div>
@@ -68,7 +68,6 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 const links = [
   { to: '/sobre', label: 'Sobre' },
   { to: '/como-funciona', label: 'Como funciona' },
-  { to: '/planos', label: 'Planos' },
 ]
 const allLinks = [{ to: '/', label: 'Início' }, ...links]
 </script>
@@ -119,14 +118,9 @@ const allLinks = [{ to: '/', label: 'Início' }, ...links]
   text-decoration: none;
 }
 .logo-img {
-  height: 32px;
+  height: 46px;
   width: auto;
-  mix-blend-mode: multiply;
-  transition: filter .25s;
-}
-.header-pill:not(.header-pill--scrolled) .logo-img {
-  mix-blend-mode: normal;
-  filter: brightness(0) invert(1);
+  transition: opacity .25s;
 }
 .header-pill:not(.header-pill--scrolled) .hamburger {
   background: rgba(255,255,255,0.12);

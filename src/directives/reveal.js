@@ -5,15 +5,18 @@ function setupReveal(el, options = {}) {
     interval = 100,
     threshold = 0.08,
     rootMargin = '0px 0px -20px 0px',
+    direction = 'up',
   } = options || {}
+
+  const cls = direction === 'right' ? 'reveal-from-right' : 'reveal'
 
   if (stagger) {
     Array.from(el.children).forEach((child, i) => {
-      child.classList.add('reveal')
+      child.classList.add(cls)
       child.style.transitionDelay = (delay + i * interval) + 'ms'
     })
   } else {
-    el.classList.add('reveal')
+    el.classList.add(cls)
     if (delay) el.style.transitionDelay = delay + 'ms'
   }
 

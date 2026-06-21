@@ -1,13 +1,13 @@
-# WFM Transportes
+# Silva Transportes
 
-Site institucional da **WFM Transportes**.
+Site institucional da **Silva Transportes**.
 
 ## Tecnologia
 - Vue 3 + Vue Router
-- Vuetify 3 + Tailwind CSS
-- Cores: #F97316 (laranja) + #1C1C1E (preto)
+- Tailwind CSS
+- Cores: #F97316 (laranja) + #1C1C1E (chumbo escuro)
 
-## Instalação
+## Instalacao
 ```bash
 npm install
 npm run serve
@@ -17,6 +17,3 @@ npm run serve
 ```bash
 npm run build
 ```
-
-## Contato
-- E-mail: wiuslei@wfmtransportes.com.br

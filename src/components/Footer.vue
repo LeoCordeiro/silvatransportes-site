@@ -1,5 +1,5 @@
 <template>
-  <footer class="relative mt-16" style="background:#1C1C1E;color:#fff">
+  <footer class="relative mt-16" style="background:var(--st-dark);color:#fff">
     <div class="h-px" style="background:linear-gradient(to right,transparent,rgba(249,115,22,0.4),transparent)"></div>
     <div class="wrap" style="padding-top:40px;padding-bottom:50px">
 
@@ -8,20 +8,20 @@
         <!-- Brand -->
         <div class="col-span-2 sm:col-span-1">
           <div class="footer-logo mb-5">
-            <img src="/logo.png" alt="WFM Transportes" class="footer-logo-img" />
+            <img src="/logo.png" alt="Silva Transportes" class="footer-logo-img" />
           </div>
           <p class="text-sm leading-relaxed mb-4 max-w-[220px]" style="color:#a3a3a3">
-            Intermediação de transporte executivo corporativo. Para empresas que precisam e motoristas que oferecem.
+            Intermediacao de transporte executivo corporativo. Motoristas qualificados, pontualidade garantida.
           </p>
           <div class="flex items-center gap-2">
-            <span class="h-1.5 w-1.5 rounded-full animate-pulse" style="background:#F97316"></span>
-            <span class="text-xs" style="color:#666666">Intermediação · Corporativo · SP</span>
+            <span class="h-1.5 w-1.5 rounded-full animate-pulse" style="background:var(--st-orange)"></span>
+            <span class="text-xs" style="color:#666666">Transporte Executivo · SP</span>
           </div>
         </div>
 
         <!-- Nav -->
         <div>
-          <p class="text-[11px] font-bold uppercase tracking-[0.15em] mb-4" style="color:#666666">Navegação</p>
+          <p class="text-[11px] font-bold uppercase tracking-[0.15em] mb-4" style="color:#666666">Navegacao</p>
           <ul class="space-y-2.5">
             <li v-for="l in navLinks" :key="l.to">
               <router-link :to="l.to" class="footer-link text-sm transition-colors">{{ l.label }}</router-link>
@@ -34,20 +34,20 @@
           <p class="text-[11px] font-bold uppercase tracking-[0.15em] mb-4" style="color:#666666">Contato</p>
           <ul class="space-y-3">
             <li>
-              <a href="https://wa.me/556499216904" target="_blank" class="footer-link flex items-center gap-2 text-sm transition-colors">
+              <a href="https://wa.me/5511920158313" target="_blank" class="footer-link flex items-center gap-2 text-sm transition-colors">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" class="text-copper-400/70 shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374A9.86 9.86 0 012.157 12C2.16 6.55 6.595 2.116 12.047 2.116c2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                (64) 9921-6904
+                WhatsApp
               </a>
             </li>
             <li>
-              <a href="mailto:atendimento@wfmtransportes.com.br" class="footer-link flex items-start gap-2 transition-colors" style="font-size:11.5px;line-height:1.5;word-break:break-all">
+              <a href="mailto:atendimentosilvatransportes@intermediacoesb2b.com.br" class="footer-link flex items-start gap-2 transition-colors" style="font-size:11.5px;line-height:1.5;word-break:break-all">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="text-copper-400/70" style="flex-shrink:0;margin-top:2px"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
-                atendimento@wfmtransportes.com.br
+                atendimentosilvatransportes@intermediacoesb2b.com.br
               </a>
             </li>
             <li class="flex items-center gap-2 text-sm" style="color:#666666">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="text-copper-400/70 shrink-0"><circle cx="12" cy="11" r="3"/><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
-              São Paulo, SP
+              Sao Paulo, SP
             </li>
           </ul>
         </div>
@@ -66,8 +66,8 @@
       <!-- Bottom -->
       <div class="border-t border-white/6" style="margin-top:8px;padding-top:24px;padding-bottom:24px;display:flex;flex-direction:column;gap:6px">
         <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px">
-          <p class="text-xs" style="color:#666666">© 2026 WFM Transportes · CNPJ 56.265.821/0001-04</p>
-          <p class="text-xs" style="color:#666666">Intermediação de Transporte Executivo · São Paulo, SP</p>
+          <p class="text-xs" style="color:#666666">Silva Transportes · silvatransportes.com.br · CNPJ 52.815.411/0001-39</p>
+          <p class="text-xs" style="color:#666666">Intermediacao de Transporte Executivo Corporativo · Sao Paulo, SP</p>
         </div>
       </div>
     </div>
@@ -76,16 +76,14 @@
 
 <script setup>
 const navLinks = [
-  { to: '/', label: 'Início' },
+  { to: '/', label: 'Inicio' },
   { to: '/sobre', label: 'Sobre' },
   { to: '/como-funciona', label: 'Como funciona' },
-  { to: '/planos', label: 'Planos' },
-  { to: '/contato', label: 'Solicitar proposta' },
+  { to: '/contato', label: 'Solicitar corrida' },
 ]
 const legalLinks = [
   { to: '/termos', label: 'Termos de Uso' },
   { to: '/privacidade', label: 'Privacidade' },
-  { to: '/comissao', label: 'Política de Comissão' },
 ]
 </script>
 
@@ -95,10 +93,8 @@ const legalLinks = [
   align-items: center;
 }
 .footer-logo-img {
-  height: 36px;
+  height: 46px;
   width: auto;
-  filter: brightness(0) invert(1);
-  opacity: 0.85;
 }
 .footer-link { color: #a3a3a3; }
 .footer-link:hover { color: #fff; }

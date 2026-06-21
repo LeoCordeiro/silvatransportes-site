@@ -2,7 +2,6 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '@/pages/Home.vue'
 import Sobre from '@/pages/Sobre.vue'
 import ComoFunciona from '@/pages/ComoFunciona.vue'
-import Planos from '@/pages/Catalogo.vue'
 import Contato from '@/pages/SolicitarCuradoria.vue'
 import PoliticaPrivacidade from '@/pages/PoliticaPrivacidade.vue'
 import PoliticaTermos from '@/pages/PoliticaTermos.vue'
@@ -12,7 +11,6 @@ const routes = [
   { path: '/', component: Home },
   { path: '/sobre', component: Sobre },
   { path: '/como-funciona', component: ComoFunciona },
-  { path: '/planos', component: Planos },
   { path: '/contato', component: Contato },
   { path: '/privacidade', component: PoliticaPrivacidade },
   { path: '/termos', component: PoliticaTermos },

@@ -4,7 +4,7 @@
     <!-- ─── HERO ─── -->
     <section class="hero">
 
-      <!-- Fundo animado: vídeo + bokeh CSS como fallback -->
+      <!-- Fundo animado: video + bokeh CSS como fallback -->
       <div class="hero-bg" aria-hidden="true">
         <video class="hero-bg-video" autoplay muted loop playsinline>
           <source src="/hero-highway.mp4" type="video/mp4">
@@ -37,27 +37,27 @@
         <!-- H1 -->
         <div class="hero-anim hero-anim-2" style="text-align:center">
           <h1 class="hero-h1">
-            <span class="hero-h1-line">Mobilidade corporativa</span>
-            <span class="hero-h1-grad">inteligente</span>
+            <span class="hero-h1-line">Sua empresa com o transporte</span>
+            <span class="hero-h1-grad">que ela merece.</span>
           </h1>
         </div>
 
-        <!-- Subtítulo -->
+        <!-- Subtitulo -->
         <div class="hero-anim hero-anim-3" style="text-align:center;margin-top:2.8rem">
           <p class="hero-sub">
-            Intermediamos a locação de veículos com motorista entre empresas que precisam e motoristas que têm.
-            <strong style="color:#FFFFFF;font-weight:600">Sem frota própria, sem burocracia,</strong>
-            com gestão centralizada.
+            Intermediamos o transporte executivo da sua equipe --
+            <strong style="color:#FFFFFF;font-weight:600">motoristas qualificados, pontualidade garantida</strong>
+            e gestao centralizada em um unico contrato.
           </p>
         </div>
 
         <!-- CTAs -->
         <div class="hero-anim hero-anim-4" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:2.5rem">
-          <router-link to="/planos" class="btn-cta-hero">
+          <a href="#solicitar" class="btn-cta-hero" @click.prevent="scrollToForm">
             <span class="hcb-border" aria-hidden="true"><span class="hcb-spin"></span></span>
             <span class="hcb-particles" aria-hidden="true"><i class="p1"></i><i class="p2"></i><i class="p3"></i><i class="p4"></i><i class="p5"></i></span>
-            <span class="hcb-label">Ver planos <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m0 0-7-7m7 7-7 7"/></svg></span>
-          </router-link>
+            <span class="hcb-label">SOLICITAR CORRIDA <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m0 0-7-7m7 7-7 7"/></svg></span>
+          </a>
           <router-link to="/como-funciona" class="btn-ghost">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" opacity=".3" fill="#F97316"/><path d="m10 8 5 4-5 4V8z" fill="#F97316"/></svg>
             Como funciona
@@ -67,7 +67,7 @@
         <!-- Trust items -->
         <div class="hero-anim hero-anim-5" style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:1.75rem">
           <span v-for="t in trusts" :key="t" class="trust-item">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--st-orange)" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
             {{ t }}
           </span>
         </div>
@@ -81,17 +81,17 @@
     </section>
 
     <!-- ─── SOLICITAR CORRIDA ─── -->
-    <section class="ride-section" v-reveal>
+    <section id="solicitar" class="ride-section" v-reveal>
       <div class="wrap">
 
-        <!-- Cabeçalho -->
+        <!-- Cabecalho -->
         <div style="margin-bottom:28px">
           <div class="ride-eyebrow-row">
             <span class="ride-eyebrow">Corrida avulsa</span>
             <div class="ride-eyebrow-line"></div>
           </div>
           <h2 class="ride-title">Solicite sua corrida agora</h2>
-          <p class="ride-subtitle">Informe os detalhes da viagem e nossa equipe entrará em contato em até 30 minutos para confirmar.</p>
+          <p class="ride-subtitle">Informe os detalhes da viagem e nossa equipe entrara em contato em ate 30 minutos para confirmar.</p>
         </div>
 
         <!-- Indicador de progresso -->
@@ -104,66 +104,103 @@
             <span class="rps-label">Detalhes</span>
           </div>
           <div class="ride-progress-line" :class="{ 'rpl-active': rideStep > 1 }"></div>
-          <div class="ride-progress-step" :class="{ 'rps-active': rideStep === 2 }">
-            <div class="rps-dot"><span>2</span></div>
-            <span class="rps-label">Confirmação</span>
+          <div class="ride-progress-step" :class="{ 'rps-active': rideStep === 2, 'rps-done': rideStep > 2 }">
+            <div class="rps-dot">
+              <svg v-if="rideStep > 2" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span v-else>2</span>
+            </div>
+            <span class="rps-label">Veiculo</span>
+          </div>
+          <div class="ride-progress-line" :class="{ 'rpl-active': rideStep > 2 }"></div>
+          <div class="ride-progress-step" :class="{ 'rps-active': rideStep === 3 }">
+            <div class="rps-dot"><span>3</span></div>
+            <span class="rps-label">Contato</span>
           </div>
         </div>
 
         <!-- Card principal -->
         <div class="ride-card">
 
-          <!-- ✅ Sucesso -->
+          <!-- Sucesso -->
           <div v-if="rideSubmitted" class="ride-success">
             <div class="ride-success-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--st-orange)" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
-            <h3 style="font-size:20px;font-weight:700;color:#1C1C1E;margin-bottom:8px">Solicitação recebida!</h3>
-            <p style="font-size:14px;color:#666666;max-width:400px;margin:0 auto 24px;line-height:1.65">Nossa equipe entrará em contato em até 30 minutos para confirmar sua corrida.</p>
-            <button type="button" @click="resetRide" class="ride-btn-reset">Fazer nova solicitação</button>
+            <h3 style="font-size:20px;font-weight:700;color:var(--st-dark);margin-bottom:8px">Solicitacao recebida!</h3>
+            <p style="font-size:14px;color:#666666;max-width:400px;margin:0 auto 24px;line-height:1.65">Nossa equipe entrara em contato em ate 30 minutos para confirmar sua corrida.</p>
+            <button type="button" @click="resetRide" class="ride-btn-reset">Fazer nova solicitacao</button>
           </div>
 
-          <!-- PASSO 1 -->
+          <!-- PASSO 1 — Detalhes da viagem -->
           <div v-else-if="rideStep === 1">
             <h3 class="ride-step-title">Detalhes da viagem</h3>
             <div class="ride-form-grid">
               <div class="ride-field ride-field-full">
                 <label class="ride-label">Origem</label>
-                <input v-model="rideForm.origem" type="text" placeholder="Ex: Aeroporto de Guarulhos — GRU" class="ride-input" />
+                <input v-model="rideForm.origem" type="text" placeholder="Ex: Aeroporto de Guarulhos -- GRU" class="ride-input" />
               </div>
               <div class="ride-field ride-field-full">
                 <label class="ride-label">Destino</label>
-                <input v-model="rideForm.destino" type="text" placeholder="Ex: Av. Paulista, 1000 — São Paulo" class="ride-input" />
+                <input v-model="rideForm.destino" type="text" placeholder="Ex: Av. Paulista, 1000 -- Sao Paulo" class="ride-input" />
               </div>
               <div class="ride-field">
                 <label class="ride-label">Data</label>
                 <input v-model="rideForm.data" type="date" class="ride-input" />
               </div>
               <div class="ride-field">
-                <label class="ride-label">Horário</label>
+                <label class="ride-label">Horario</label>
                 <input v-model="rideForm.horario" type="time" class="ride-input" />
               </div>
               <div class="ride-field ride-field-full">
                 <label class="ride-label">Passageiros</label>
                 <div class="pax-row">
-                  <button v-for="n in [1,2,3,4,'5+']" :key="n" type="button" class="pax-btn" :class="{ 'pax-btn--active': rideForm.passageiros === n }" @click="rideForm.passageiros = n">{{ n }}</button>
+                  <button v-for="n in [1,2,3,4]" :key="n" type="button" class="pax-btn" :class="{ 'pax-btn--active': rideForm.passageiros === n }" @click="rideForm.passageiros = n">{{ n }}</button>
                 </div>
               </div>
             </div>
             <div class="ride-actions">
               <button type="button" @click="goStep(2)" class="ride-btn-next" :disabled="!rideForm.origem || !rideForm.destino">
-                Próximo
+                Proximo
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14m0 0-7-7m7 7-7 7"/></svg>
               </button>
             </div>
           </div>
 
-          <!-- PASSO 2 -->
+          <!-- PASSO 2 — Categoria do veiculo -->
           <div v-else-if="rideStep === 2">
+            <h3 class="ride-step-title">Categoria do veiculo</h3>
+            <div class="cat-grid">
+              <button
+                v-for="cat in categories"
+                :key="cat.name"
+                type="button"
+                class="cat-card"
+                :class="{ 'cat-card--active': rideForm.categoria === cat.name }"
+                @click="rideForm.categoria = cat.name"
+              >
+                <div class="cat-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--st-orange)" stroke-width="1.5" stroke-linecap="round" v-html="cat.icon"></svg>
+                </div>
+                <h4 class="cat-name">{{ cat.name }}</h4>
+                <p class="cat-models">{{ cat.models }}</p>
+                <p class="cat-desc">{{ cat.desc }}</p>
+              </button>
+            </div>
+            <div class="ride-actions ride-actions--spread" style="margin-top:24px">
+              <button type="button" @click="goStep(1)" class="ride-btn-back">Voltar</button>
+              <button type="button" @click="goStep(3)" class="ride-btn-next" :disabled="!rideForm.categoria">
+                Proximo
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14m0 0-7-7m7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- PASSO 3 — Dados de contato -->
+          <div v-else-if="rideStep === 3">
             <h3 class="ride-step-title">Dados de contato</h3>
             <div class="ride-form-grid">
               <div class="ride-field">
-                <label class="ride-label">Nome completo <span style="color:#F97316">*</span></label>
+                <label class="ride-label">Nome completo <span style="color:var(--st-orange)">*</span></label>
                 <input v-model="rideForm.nome" type="text" placeholder="Seu nome" class="ride-input" />
               </div>
               <div class="ride-field">
@@ -171,7 +208,7 @@
                 <input v-model="rideForm.empresa" type="text" placeholder="Nome da empresa" class="ride-input" />
               </div>
               <div class="ride-field">
-                <label class="ride-label">WhatsApp <span style="color:#F97316">*</span></label>
+                <label class="ride-label">WhatsApp <span style="color:var(--st-orange)">*</span></label>
                 <input :value="rideForm.whatsapp" @input="maskPhone" type="text" placeholder="(11) 9XXXX-XXXX" class="ride-input" maxlength="15" />
               </div>
               <div class="ride-field">
@@ -180,9 +217,9 @@
               </div>
             </div>
             <div class="ride-actions ride-actions--spread" style="margin-top:24px">
-              <button type="button" @click="goStep(1)" class="ride-btn-back">← Voltar</button>
+              <button type="button" @click="goStep(2)" class="ride-btn-back">Voltar</button>
               <button type="button" @click="submitRide" class="ride-btn-submit" :disabled="!rideForm.nome || !rideForm.whatsapp">
-                SOLICITAR CORRIDA →
+                SOLICITAR CORRIDA
               </button>
             </div>
           </div>
@@ -191,47 +228,66 @@
       </div>
     </section>
 
-    <!-- ─── PLANOS ─── -->
-    <section class="section-gap">
+    <!-- ─── POR QUE A SILVA TRANSPORTES ─── -->
+    <section class="section-gap section-diffs" v-reveal>
       <div class="wrap">
-
-        <div v-reveal style="margin-bottom:44px">
+        <div style="margin-bottom:44px">
           <div class="eyebrow-row">
-            <span class="section-eyebrow">Planos</span>
-            <span style="font-size:10.5px;color:#888888;letter-spacing:0.1em">03</span>
+            <span class="section-eyebrow">Diferenciais</span>
+            <span class="eyebrow-line-anim"></span>
           </div>
-          <div class="section-divider"></div>
+          <div class="section-divider section-divider--anim"></div>
           <div class="section-title-row">
-            <h2 class="section-title">Pacotes de serviço</h2>
-            <p class="section-desc">Escolha o plano ideal para o volume e perfil da sua empresa.</p>
+            <h2 class="section-title">Por que a Silva Transportes</h2>
+            <p class="section-desc">O que nos diferencia na intermediacao de transporte executivo corporativo.</p>
           </div>
         </div>
 
-        <div class="plans-grid" v-reveal="{ stagger:true, interval:100 }">
-          <div v-for="plan in planCards" :key="plan.name" class="plan-card" :class="{ 'plan-card--featured': plan.featured }">
-            <div v-if="plan.featured" class="plan-featured-badge">Mais contratado</div>
-            <div class="plan-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" v-html="plan.icon"></svg>
+        <div class="diffs-grid" v-reveal="{ stagger:true, interval:140 }">
+          <div v-for="(d, i) in diffs" :key="d.title" class="diff-card diff-card--animated" :style="'--card-i:' + i">
+            <div class="diff-icon diff-icon--animated">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--st-orange)" stroke-width="1.5" stroke-linecap="round" v-html="d.icon"></svg>
+              <span class="diff-icon-glow"></span>
             </div>
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-              <h3 style="font-size:16px;font-weight:700;letter-spacing:-0.01em;color:#1C1C1E">{{ plan.name }}</h3>
-            </div>
-            <p style="font-size:13px;color:#666666;line-height:1.6;margin-bottom:18px">{{ plan.desc }}</p>
-            <ul style="display:flex;flex-direction:column;gap:8px;margin-bottom:24px">
-              <li v-for="item in plan.features" :key="item" style="display:flex;align-items:flex-start;gap:8px;font-size:12.5px;color:#666666">
-                <span style="width:16px;height:16px;border-radius:50%;background:#FEF0E7;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">
-                  <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-                </span>
-                {{ item }}
-              </li>
-            </ul>
-            <router-link to="/contato" class="plan-cta" :class="{ 'plan-cta--featured': plan.featured }">
-              {{ plan.cta }}
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14m0 0-7-7m7 7-7 7"/></svg>
-            </router-link>
+            <h3 class="diff-card-title">{{ d.title }}</h3>
+            <p class="diff-card-desc">{{ d.desc }}</p>
+            <span class="diff-card-border"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── COMO FUNCIONA ─── -->
+    <section class="section-gap section-steps" v-reveal>
+      <div class="wrap">
+        <div style="margin-bottom:44px">
+          <div class="eyebrow-row">
+            <span class="section-eyebrow">Processo</span>
+            <span class="eyebrow-line-anim"></span>
+          </div>
+          <div class="section-divider section-divider--anim"></div>
+          <div class="section-title-row">
+            <h2 class="section-title">Como funciona</h2>
+            <p class="section-desc">Da solicitacao a corrida executada, em 4 passos simples.</p>
           </div>
         </div>
 
+        <div class="steps-track">
+          <div class="steps-connector" aria-hidden="true">
+            <span class="steps-connector-fill"></span>
+          </div>
+          <div class="steps-grid" v-reveal="{ stagger:true, interval:180, direction:'right' }">
+            <div v-for="(s, i) in steps" :key="s.n" class="step-home-card step-home-card--animated" :style="'--step-i:' + i">
+              <span class="step-number step-number--animated">
+                <span class="step-number-inner">{{ s.n }}</span>
+                <span class="step-number-ring"></span>
+              </span>
+              <h3 class="step-card-title">{{ s.title }}</h3>
+              <p class="step-card-desc">{{ s.desc }}</p>
+              <span class="step-card-border"></span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -243,20 +299,22 @@
           <div class="cta-glow-dot"></div>
           <div class="cta-content">
             <h2 class="cta-title">
-              Sua empresa merece<br />
-              <span style="color:#F97316">mobilidade sem complicação.</span>
+              Sua empresa pronta para contratar<br />
+              <span style="color:var(--st-orange)">transporte sem complicacao.</span>
             </h2>
             <p class="cta-desc">
-              Se você precisa de transporte executivo com gestão profissional, ou se você tem veículo e quer clientes corporativos — a WFM Transportes é a conexão que faltava.
+              Fale com a Silva Transportes e descubra como ter transporte executivo de qualidade sem precisar manter frota propria.
             </p>
-            <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
-              <router-link to="/contato" class="btn-primary">
-                Solicitar proposta
-              </router-link>
-              <router-link to="/contato" class="btn-ghost btn-ghost--cta">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-                Quero me cadastrar como parceiro
-              </router-link>
+            <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:24px">
+              <a href="#solicitar" class="btn-primary" @click.prevent="scrollToForm">
+                SOLICITAR CORRIDA AGORA
+              </a>
+            </div>
+            <div class="cta-seals">
+              <span v-for="s in seals" :key="s" class="cta-seal">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--st-orange)" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                {{ s }}
+              </span>
             </div>
           </div>
         </div>
@@ -269,16 +327,21 @@
 <script setup>
 import { ref, reactive } from 'vue'
 
-/* ─── Calculadora de corrida ─── */
 const rideStep = ref(1)
 const rideSubmitted = ref(false)
 
 const rideForm = reactive({
   origem: '', destino: '', data: '', horario: '', passageiros: 1,
+  categoria: '',
   nome: '', empresa: '', whatsapp: '', email: '',
 })
 
 function goStep(n) { rideStep.value = n }
+
+function scrollToForm() {
+  const el = document.getElementById('solicitar')
+  if (el) el.scrollIntoView({ behavior: 'smooth' })
+}
 
 function maskPhone(e) {
   let v = e.target.value.replace(/\D/g, '')
@@ -291,68 +354,86 @@ function maskPhone(e) {
 }
 
 function submitRide() {
-  const msg = `Olá! Quero solicitar uma corrida pela WFM Transportes.\n\nOrigem: ${rideForm.origem}\nDestino: ${rideForm.destino}\nData: ${rideForm.data || 'Não informada'}\nHorário: ${rideForm.horario || 'Não informado'}\nPassageiros: ${rideForm.passageiros}\n\nNome: ${rideForm.nome}\nEmpresa: ${rideForm.empresa || 'Não informado'}\nE-mail: ${rideForm.email || 'Não informado'}`
-  window.open(`https://wa.me/556499216904?text=${encodeURIComponent(msg)}`, '_blank')
+  const msg = `Ola! Quero solicitar uma corrida pela Silva Transportes.\n\nOrigem: ${rideForm.origem}\nDestino: ${rideForm.destino}\nData: ${rideForm.data || 'Nao informada'}\nHorario: ${rideForm.horario || 'Nao informado'}\nPassageiros: ${rideForm.passageiros}\nCategoria: ${rideForm.categoria}\n\nNome: ${rideForm.nome}\nEmpresa: ${rideForm.empresa || 'Nao informado'}\nE-mail: ${rideForm.email || 'Nao informado'}`
+  window.open(`https://wa.me/5511920158313?text=${encodeURIComponent(msg)}`, '_blank')
   rideSubmitted.value = true
 }
 
 function resetRide() {
   rideStep.value = 1
   rideSubmitted.value = false
-  Object.assign(rideForm, { origem: '', destino: '', data: '', horario: '', passageiros: 1, nome: '', empresa: '', whatsapp: '', email: '' })
+  Object.assign(rideForm, { origem: '', destino: '', data: '', horario: '', passageiros: 1, categoria: '', nome: '', empresa: '', whatsapp: '', email: '' })
 }
 
-/* ─── Dados estáticos existentes ─── */
-const trusts = ['Motoristas verificados e treinados', 'Contrato formal com nota fiscal', 'Gestão centralizada completa']
+const trusts = [
+  'Confirmacao em ate 30 minutos',
+  'Motoristas verificados',
+  'Nota fiscal garantida',
+  'Cobertura Sao Paulo e regiao',
+]
 
-
-
-
-const planCards = [
+const categories = [
   {
-    name: 'Essencial',
-    featured: false,
-    desc: 'Ideal para empresas com demanda moderada de transporte executivo.',
-    features: [
-      'Até 20 corridas por mês',
-      'Até 2 executivos cobertos',
-      'Agendamento via WhatsApp',
-      'Motorista padrão executivo',
-      'Relatório mensal de uso',
-    ],
-    cta: 'Solicitar proposta',
+    name: 'Executivo Standard',
+    models: 'HB20, Onix, Polo',
+    desc: 'Ate 4 passageiros',
+    icon: '<rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>',
+  },
+  {
+    name: 'Executivo Plus',
+    models: 'Corolla, Cruze, Jetta',
+    desc: 'Ate 4 passageiros, amenities',
+    icon: '<rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/><line x1="6" y1="10" x2="10" y2="10"/>',
+  },
+  {
+    name: 'SUV Premium',
+    models: 'SW4, Compass, Tiguan',
+    desc: 'Ate 5 passageiros, espaco para bagagem',
+    icon: '<rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/><path d="M1 13h22"/>',
+  },
+  {
+    name: 'Van Executiva',
+    models: 'Sprinter, Master, Jumper',
+    desc: 'Ate 10 passageiros, grupos',
+    icon: '<rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/><path d="M6 8v5"/><path d="M10 8v5"/>',
+  },
+]
+
+const diffs = [
+  {
+    title: 'Zero frota propria para a empresa',
+    desc: 'Sem custo de manutencao ou seguro. A empresa contratante nao precisa investir em veiculos.',
     icon: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
   },
   {
-    name: 'Corporativo',
-    featured: true,
-    desc: 'Para empresas com equipe executiva ativa e demanda consistente.',
-    features: [
-      'Até 50 corridas por mês',
-      'Até 5 executivos cobertos',
-      'Motorista sênior dedicado',
-      'Relatório semanal',
-      'Atendimento 6h às 23h',
-      'Gestão de rotas e agendamentos',
-    ],
-    cta: 'Solicitar proposta',
-    icon: '<path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>',
+    title: 'Motoristas verificados e treinados',
+    desc: 'Todos os motoristas sao verificados e treinados para o padrao corporativo exigido.',
+    icon: '<path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>',
   },
   {
-    name: 'Premium',
-    featured: false,
-    desc: 'Para C-level, diretores e demandas executivas de alto padrão.',
-    features: [
-      'Corridas ilimitadas',
-      'C-level e diretores',
-      'Motorista dedicado exclusivo',
-      'Veículo premium Corolla ou superior',
-      'Atendimento 24h/7 dias',
-      'Gestão de agenda integrada',
-    ],
-    cta: 'Solicitar proposta',
-    icon: '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>',
+    title: 'Contrato formal com nota fiscal',
+    desc: 'CNPJ ativo e emissao de nota fiscal em todas as corridas. Sem informalidade.',
+    icon: '<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>',
   },
+  {
+    title: 'Um unico ponto de contato',
+    desc: 'Toda a demanda de transporte da empresa gerenciada por um unico interlocutor. Sem fragmentacao.',
+    icon: '<path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>',
+  },
+]
+
+const steps = [
+  { n: 1, title: 'Voce solicita a corrida', desc: 'Informe origem, destino, data, horario e categoria do veiculo desejado.' },
+  { n: 2, title: 'Selecionamos o motorista ideal', desc: 'Escolhemos o motorista e veiculo ideal da nossa rede parceira para sua corrida.' },
+  { n: 3, title: 'Confirmacao em ate 30 minutos', desc: 'Voce recebe a confirmacao com motorista e horario em ate 30 minutos.' },
+  { n: 4, title: 'Corrida executada', desc: 'Corrida executada com pontualidade e padrao corporativo garantido.' },
+]
+
+const seals = [
+  'Confirmacao em ate 30 minutos',
+  'Motoristas verificados',
+  'Nota fiscal garantida',
+  'Cobertura Sao Paulo e regiao',
 ]
 </script>
 
@@ -368,13 +449,12 @@ const planCards = [
   z-index: 1;
 }
 
-/* ─── Hero background (vídeo + bokeh) ─── */
+/* ─── Hero background (video + bokeh) ─── */
 .hero-bg {
   position: absolute;
   inset: 0;
   z-index: -1;
   overflow: hidden;
-  /* Fundo noturno de rodovia — fallback quando sem vídeo */
   background: linear-gradient(180deg,
     #060509 0%,
     #0c0a14 30%,
@@ -392,7 +472,6 @@ const planCards = [
   opacity: 0.6;
 }
 
-/* ─── Dot grid texture (masked at edges) ─── */
 .hero-texture {
   position: absolute;
   inset: 0;
@@ -403,7 +482,6 @@ const planCards = [
   pointer-events: none;
 }
 
-/* ─── Film grain overlay ─── */
 .hero-noise {
   position: absolute;
   inset: 0;
@@ -413,7 +491,6 @@ const planCards = [
   pointer-events: none;
 }
 
-/* ─── Ambient orange glow behind headline ─── */
 .hero-glow-blob {
   position: absolute;
   left: 50%;
@@ -431,7 +508,6 @@ const planCards = [
   50%       { opacity: 1;   transform: translate(-50%, -50%) scale(1.15); }
 }
 
-/* ─── Overlay: vignette radial + tint escuro ─── */
 .hero-bg-overlay {
   position: absolute;
   inset: 0;
@@ -440,7 +516,6 @@ const planCards = [
     linear-gradient(175deg, rgba(249,115,22,0.03) 0%, transparent 45%);
 }
 
-/* ─── Fade suave para branco ─── */
 .hero-bg-fade {
   position: absolute;
   bottom: 0; left: 0; right: 0;
@@ -448,7 +523,6 @@ const planCards = [
   background: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.92) 80%, #FFFFFF 100%);
 }
 
-/* ─── Eyebrow pill animado ─── */
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -469,7 +543,7 @@ const planCards = [
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #F97316;
+  background: var(--st-orange);
   flex-shrink: 0;
   animation: eyebrow-dot 2s ease-in-out infinite;
 }
@@ -478,7 +552,6 @@ const planCards = [
   50%       { box-shadow: 0 0 0 5px rgba(249,115,22,0), 0 0 1px rgba(249,115,22,0.2); }
 }
 
-/* ─── Scroll hint ─── */
 .hero-scroll {
   position: absolute;
   bottom: 32px;
@@ -494,7 +567,6 @@ const planCards = [
   50%       { transform: translateX(-50%) translateY(8px); }
 }
 
-/* ─── Bokeh: faróis e lanternas de carros na rodovia ─── */
 .hero-bokeh span {
   position: absolute;
   border-radius: 50%;
@@ -508,22 +580,16 @@ const planCards = [
   100% { transform: translateX(-10vw); opacity: 0; }
 }
 
-/* Faróis brancos/amarelados — pista próxima */
 .bk1  { width:28px; height:16px; top:57%; filter:blur(8px);  background:rgba(255,238,190,0.9); animation-duration:3.1s; animation-delay:0s;   }
 .bk2  { width:22px; height:14px; top:59%; filter:blur(6px);  background:rgba(255,228,170,0.8); animation-duration:3.4s; animation-delay:1.5s; margin-left:24px; }
-/* Faróis — pista distante (menores, mais lentos) */
 .bk3  { width:14px; height:9px;  top:51%; filter:blur(5px);  background:rgba(255,242,200,0.65); animation-duration:5.2s; animation-delay:0.4s; }
 .bk4  { width:11px; height:7px;  top:52%; filter:blur(4px);  background:rgba(255,232,185,0.55); animation-duration:6.0s; animation-delay:2.3s; }
-/* Lanternas traseiras vermelhas — pista próxima */
 .bk5  { width:20px; height:11px; top:61%; filter:blur(8px);  background:rgba(255,55,35,0.78);  animation-duration:2.8s; animation-delay:0.7s; }
 .bk6  { width:15px; height:9px;  top:62%; filter:blur(7px);  background:rgba(220,38,28,0.65);  animation-duration:3.0s; animation-delay:1.9s; }
-/* Rastros de velocidade — carros rápidos */
 .bk7  { width:55px; height:4px;  top:55%; filter:blur(3px);  background:rgba(255,215,140,0.45); animation-duration:1.9s; animation-delay:0.3s; border-radius:2px; }
 .bk8  { width:75px; height:3px;  top:60%; filter:blur(3px);  background:rgba(255,60,40,0.38);   animation-duration:2.1s; animation-delay:2.8s; border-radius:2px; }
-/* Luzes distantes (tracejado) */
 .bk9  { width:42px; height:5px;  top:50%; filter:blur(4px);  background:rgba(255,220,150,0.38); animation-duration:7.2s; animation-delay:1.0s; border-radius:3px; }
 .bk10 { width:30px; height:4px;  top:53%; filter:blur(4px);  background:rgba(255,200,100,0.3);  animation-duration:8.0s; animation-delay:3.5s; border-radius:3px; }
-/* Postes de luz da rodovia (passam lentamente no topo) */
 .bk11 { width:9px;  height:9px;  top:32%; filter:blur(10px); background:rgba(255,195,110,0.38); animation-duration:9.5s; animation-delay:0.0s; }
 .bk12 { width:7px;  height:7px;  top:27%; filter:blur(9px);  background:rgba(255,185,95,0.3);   animation-duration:8.8s; animation-delay:4.2s; }
 
@@ -532,7 +598,7 @@ const planCards = [
 
 /* ─── Hero headline ─── */
 .hero-h1 {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: clamp(3.2rem, 6.5vw, 6rem);
   font-weight: 700;
   letter-spacing: -0.01em;
@@ -571,18 +637,16 @@ const planCards = [
   100% { background-position: 200% center; }
 }
 
-/* ─── Hero subtítulo ─── */
 .hero-sub {
   font-size: 0.98rem;
   line-height: 1.75;
   letter-spacing: 0.01em;
   color: rgba(255,255,255,0.55);
-  max-width: 460px;
+  max-width: 500px;
   margin: 0 auto;
   text-align: center;
 }
 
-/* ─── Trust ─── */
 .trust-item {
   display: inline-flex;
   align-items: center;
@@ -601,11 +665,12 @@ const planCards = [
   font-size: 13.5px;
   font-weight: 700;
   color: #fff;
-  background: #F97316;
+  background: var(--st-orange);
   box-shadow: 0 0 28px rgba(249,115,22,0.35), 0 1px 0 rgba(255,255,255,0.2) inset;
   transition: transform .2s, box-shadow .2s, background .2s;
+  letter-spacing: 0.04em;
 }
-.btn-primary:hover { background: #EA580C; transform: translateY(-2px); box-shadow: 0 0 40px rgba(249,115,22,0.45); }
+.btn-primary:hover { background: var(--st-orange-dark); transform: translateY(-2px); box-shadow: 0 0 40px rgba(249,115,22,0.45); }
 
 .btn-ghost {
   display: inline-flex;
@@ -621,8 +686,6 @@ const planCards = [
   transition: color .2s, border-color .2s, background .2s;
 }
 .btn-ghost:hover { color: #FFFFFF; border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.14); }
-.btn-ghost--cta { color: #F97316; border-color: rgba(249,115,22,0.4); background: transparent; }
-.btn-ghost--cta:hover { color: #EA580C; border-color: #F97316; background: rgba(249,115,22,0.08); }
 
 /* ─── Hero CTA ─── */
 .btn-cta-hero {
@@ -638,10 +701,11 @@ const planCards = [
   overflow: hidden;
   cursor: pointer;
   transition: transform .25s, box-shadow .25s;
-  background: #F97316;
+  background: var(--st-orange);
   box-shadow: 0 0 32px rgba(249,115,22,0.38), 0 1px 0 rgba(255,255,255,0.2) inset;
   text-decoration: none;
   isolation: isolate;
+  letter-spacing: 0.04em;
 }
 .btn-cta-hero:hover {
   transform: scale(1.05);
@@ -662,7 +726,7 @@ const planCards = [
   content: '';
   position: absolute; inset: 2px;
   border-radius: 9999px;
-  background: #F97316;
+  background: var(--st-orange);
   z-index: 0;
 }
 .hcb-particles {
@@ -700,7 +764,7 @@ const planCards = [
 .section-eyebrow {
   font-size: 10.5px; font-weight: 700;
   letter-spacing: 0.2em; text-transform: uppercase;
-  color: #F97316;
+  color: var(--st-orange);
 }
 .section-divider {
   height: 1px;
@@ -716,76 +780,270 @@ const planCards = [
 .section-title {
   font-size: clamp(1.8rem, 3.5vw, 3rem);
   font-weight: 700; letter-spacing: -0.03em;
-  color: #1C1C1E; line-height: 1.1;
+  color: var(--st-dark); line-height: 1.1;
 }
-.section-desc { font-size: 13px; color: #666666; max-width: 240px; line-height: 1.6; }
+.section-desc { font-size: 13px; color: #666666; max-width: 280px; line-height: 1.6; }
 
-/* ─── Plans ─── */
-.plans-grid { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+/* ─── Eyebrow line anim ─── */
+.eyebrow-line-anim {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(249,115,22,0.35), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.section-diffs.is-visible .eyebrow-line-anim,
+.section-steps.is-visible .eyebrow-line-anim {
+  transform: scaleX(1);
+}
 
-.plan-card {
-  flex: 0 0 calc(33.333% - 11px);
-  padding: 28px 24px;
+.section-divider--anim {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+}
+.section-diffs.is-visible .section-divider--anim,
+.section-steps.is-visible .section-divider--anim {
+  transform: scaleX(1);
+}
+
+/* ─── Diffs grid ─── */
+.diffs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+@media(max-width:900px) { .diffs-grid { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width:600px) { .diffs-grid { grid-template-columns: 1fr; } }
+
+.diff-card--animated {
+  padding: 24px 20px;
   border-radius: 16px;
-  background: #FFFFFF;
-  border: 1px solid #E5E5E5;
-  transition: all .25s;
+  background: var(--st-white);
+  border: 1px solid transparent;
   position: relative;
-  display: flex;
-  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.35s ease;
 }
-.plan-card:hover { border-color: rgba(249,115,22,0.3); background: #FEF0E7; transform: translateY(-2px); box-shadow: 0 4px 20px rgba(249,115,22,0.1); }
-.plan-card--featured {
-  border-color: rgba(249,115,22,0.4);
-  background: linear-gradient(135deg, #FEF0E7, #FFFFFF);
+.diff-card--animated:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(249,115,22,0.12), 0 2px 8px rgba(0,0,0,0.04);
 }
-.plan-card--featured:hover { border-color: #F97316; }
 
-.plan-featured-badge {
+/* Borda gradiente animada */
+.diff-card-border {
   position: absolute;
-  top: -12px; left: 50%; transform: translateX(-50%);
-  padding: 3px 14px;
-  border-radius: 9999px;
-  font-size: 10.5px; font-weight: 700;
-  background: #F97316;
-  color: #fff;
-  white-space: nowrap;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(249,115,22,0) 0%,
+    rgba(249,115,22,0.3) 50%,
+    rgba(249,115,22,0) 100%
+  );
+  background-size: 300% 300%;
+  animation: border-travel 4s ease-in-out infinite;
+  animation-delay: calc(var(--card-i) * 0.5s);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+@keyframes border-travel {
+  0%   { background-position: 0% 0%; }
+  50%  { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
 }
 
-.plan-icon {
-  width: 40px; height: 40px; border-radius: 10px;
+/* Icone com glow pulsante */
+.diff-icon--animated {
+  width: 44px; height: 44px; border-radius: 12px;
   background: #FEF0E7; border: 1px solid rgba(249,115,22,0.25);
   display: flex; align-items: center; justify-content: center;
   margin-bottom: 14px;
+  position: relative;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.diff-card--animated:hover .diff-icon--animated {
+  transform: scale(1.1) rotate(-3deg);
+  background: rgba(249,115,22,0.15);
+}
+.diff-icon-glow {
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(249,115,22,0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.diff-card--animated:hover .diff-icon-glow { opacity: 1; }
+
+.diff-card-title {
+  font-size: 14px; font-weight: 700;
+  color: var(--st-dark);
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+.diff-card--animated:hover .diff-card-title { color: var(--st-orange-dark); }
+.diff-card-desc { font-size: 13px; color: #666666; line-height: 1.6; }
+
+/* Shimmer sweep sutil no hover */
+.diff-card--animated::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(105deg, transparent 40%, rgba(249,115,22,0.06) 50%, transparent 60%);
+  transform: translateX(-120%);
+  transition: none;
+  pointer-events: none;
+}
+.diff-card--animated:hover::after {
+  animation: card-shimmer 0.8s ease forwards;
+}
+@keyframes card-shimmer {
+  to { transform: translateX(120%); }
 }
 
+/* ─── Steps ─── */
+.steps-track { position: relative; }
 
-.plan-cta {
+/* Linha conectora horizontal entre os steps */
+.steps-connector {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  height: 2px;
+  background: #E5E5E5;
+  border-radius: 2px;
+  z-index: 0;
+  overflow: hidden;
+}
+.steps-connector-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--st-orange), rgba(249,115,22,0.3));
+  border-radius: inherit;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.3s;
+}
+.section-steps.is-visible .steps-connector-fill {
+  transform: scaleX(1);
+}
+@media(max-width:900px) { .steps-connector { display: none; } }
+
+.steps-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+  position: relative; z-index: 1;
+}
+@media(max-width:900px) { .steps-grid { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width:600px) { .steps-grid { grid-template-columns: 1fr; } }
+
+.step-home-card--animated {
+  padding: 22px 20px;
+  border-radius: 16px;
+  background: var(--st-white);
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.35s ease;
+}
+.step-home-card--animated:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(249,115,22,0.1), 0 2px 8px rgba(0,0,0,0.04);
+}
+
+/* Borda gradiente animada nos steps */
+.step-card-border {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(249,115,22,0) 0%,
+    rgba(249,115,22,0.25) 50%,
+    rgba(249,115,22,0) 100%
+  );
+  background-size: 300% 300%;
+  animation: border-travel 4s ease-in-out infinite;
+  animation-delay: calc(var(--step-i) * 0.6s);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Numero do passo com anel animado */
+.step-number--animated {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 7px;
-  padding: 11px 18px;
-  border-radius: 9999px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #666666;
-  border: 1px solid #E5E5E5;
-  background: #F5F5F5;
-  transition: all .2s;
-  margin-top: auto;
+  width: 36px; height: 36px;
+  margin-bottom: 14px;
 }
-.plan-cta:hover { color: #1C1C1E; border-color: rgba(249,115,22,0.4); background: #FEF0E7; }
-.plan-cta--featured {
-  background: #F97316;
-  border-color: transparent;
+.step-number-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: #FEF0E7;
+  border: 2px solid rgba(249,115,22,0.3);
+  font-size: 13px; font-weight: 800;
+  color: var(--st-orange);
+  position: relative;
+  z-index: 1;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+.step-home-card--animated:hover .step-number-inner {
+  background: var(--st-orange);
+  border-color: var(--st-orange);
   color: #fff;
-  box-shadow: 0 0 22px rgba(249,115,22,0.3);
+  transform: scale(1.1);
 }
-.plan-cta--featured:hover { background: #EA580C; box-shadow: 0 0 32px rgba(249,115,22,0.45); transform: translateY(-1px); }
 
-@media (max-width: 900px) { .plan-card { flex: 0 0 calc(50% - 8px); } }
-@media (max-width: 600px) { .plan-card { flex: 0 0 100%; } }
+/* Anel pulsante ao redor do numero */
+.step-number-ring {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid rgba(249,115,22,0.2);
+  animation: ring-pulse 2.5s ease-in-out infinite;
+  animation-delay: calc(var(--step-i) * 0.4s);
+}
+@keyframes ring-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50%       { transform: scale(1.25); opacity: 0; }
+}
+
+.step-card-title {
+  font-size: 14px; font-weight: 700;
+  color: var(--st-dark);
+  margin-bottom: 6px;
+  transition: color 0.3s ease;
+}
+.step-home-card--animated:hover .step-card-title { color: var(--st-orange-dark); }
+.step-card-desc { font-size: 13px; color: #666666; line-height: 1.6; }
+
+/* Shimmer sweep nos steps */
+.step-home-card--animated::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(105deg, transparent 40%, rgba(249,115,22,0.05) 50%, transparent 60%);
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+.step-home-card--animated:hover::after {
+  animation: card-shimmer 0.8s ease forwards;
+}
 
 /* ─── CTA Block ─── */
 .cta-block {
@@ -808,20 +1066,33 @@ const planCards = [
 .cta-content { position: relative; z-index: 1; }
 .cta-title {
   font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: 700; letter-spacing: -0.03em; color: #1C1C1E;
+  font-weight: 700; letter-spacing: -0.03em; color: var(--st-dark);
   margin-bottom: 14px; line-height: 1.15;
 }
-.cta-desc { font-size: 15px; color: #666666; max-width: 440px; margin: 0 auto 32px; line-height: 1.65; }
+.cta-desc { font-size: 15px; color: #666666; max-width: 480px; margin: 0 auto 32px; line-height: 1.65; }
+.cta-seals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+.cta-seal {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #666666;
+}
 
-/* ─── Seção Solicitar Corrida ─── */
+/* ─── Secao Solicitar Corrida ─── */
 .ride-section {
   padding-top: 40px;
   padding-bottom: 48px;
 }
 .ride-eyebrow-row { display:flex;align-items:center;gap:14px;margin-bottom:14px }
-.ride-eyebrow { font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#F97316;white-space:nowrap }
+.ride-eyebrow { font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--st-orange);white-space:nowrap }
 .ride-eyebrow-line { flex:1;height:1px;background:linear-gradient(to right,rgba(249,115,22,0.35),#E5E5E5,transparent) }
-.ride-title { font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;letter-spacing:-0.03em;color:#1C1C1E;line-height:1.1;margin-bottom:8px }
+.ride-title { font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;letter-spacing:-0.03em;color:var(--st-dark);line-height:1.1;margin-bottom:8px }
 .ride-subtitle { font-size:15px;color:#666666;line-height:1.6;max-width:520px }
 
 /* Progresso */
@@ -831,7 +1102,7 @@ const planCards = [
   justify-content: center;
   gap: 0;
   margin: 0 auto 28px;
-  max-width: 420px;
+  max-width: 520px;
 }
 .ride-progress-step {
   display: flex;
@@ -844,37 +1115,37 @@ const planCards = [
   width: 32px; height: 32px;
   border-radius: 50%;
   border: 2px solid #E5E5E5;
-  background: #FFFFFF;
+  background: var(--st-white);
   display: flex; align-items: center; justify-content: center;
   font-size: 12px; font-weight: 700; color: #BBBBBB;
   transition: all .25s;
 }
 .ride-progress-step.rps-active .rps-dot,
 .ride-progress-step.rps-done .rps-dot {
-  border-color: #F97316; background: #F97316; color: #FFFFFF;
+  border-color: var(--st-orange); background: var(--st-orange); color: #FFFFFF;
 }
 .rps-label { font-size: 11px; color: #AAAAAA; white-space: nowrap; transition: color .25s; }
 .ride-progress-step.rps-active .rps-label,
-.ride-progress-step.rps-done .rps-label { color: #F97316; font-weight: 600; }
+.ride-progress-step.rps-done .rps-label { color: var(--st-orange); font-weight: 600; }
 .ride-progress-line {
   flex: 1; height: 2px; background: #E5E5E5;
   margin-top: 15px; transition: background .25s;
 }
-.ride-progress-line.rpl-active { background: #F97316; }
+.ride-progress-line.rpl-active { background: var(--st-orange); }
 
 /* Card */
 .ride-card {
   border-radius: 20px;
   border: 1px solid #E5E5E5;
-  background: #FFFFFF;
+  background: var(--st-white);
   padding: 32px 36px;
   box-shadow: 0 2px 20px rgba(0,0,0,0.04);
 }
 @media(max-width:640px){ .ride-card { padding: 22px 18px; } }
 
-.ride-step-title { font-size:16px;font-weight:700;color:#1C1C1E;margin-bottom:22px;letter-spacing:-0.01em }
+.ride-step-title { font-size:16px;font-weight:700;color:var(--st-dark);margin-bottom:22px;letter-spacing:-0.01em }
 
-/* Formulário */
+/* Formulario */
 .ride-form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -884,14 +1155,14 @@ const planCards = [
 .ride-field { display: flex; flex-direction: column; gap: 6px; }
 .ride-field-full { grid-column: span 2; }
 @media(max-width:640px){ .ride-field-full { grid-column: span 1; } }
-.ride-label { font-size: 12px; font-weight: 600; color: #1C1C1E; }
+.ride-label { font-size: 12px; font-weight: 600; color: var(--st-dark); }
 .ride-input {
   padding: 10px 14px;
   border-radius: 10px;
   border: 1px solid #E5E5E5;
-  background: #F5F5F5;
+  background: var(--st-gray-light);
   font-size: 13.5px;
-  color: #1C1C1E;
+  color: var(--st-dark);
   outline: none;
   transition: border-color .18s, background .18s;
   font-family: inherit;
@@ -905,26 +1176,55 @@ const planCards = [
   width: 44px; height: 44px;
   border-radius: 10px;
   border: 1px solid #E5E5E5;
-  background: #F5F5F5;
+  background: var(--st-gray-light);
   font-size: 14px; font-weight: 600; color: #666666;
   cursor: pointer; transition: all .18s;
 }
-.pax-btn:hover { border-color: rgba(249,115,22,0.4); color: #F97316; }
-.pax-btn--active { border-color: #F97316; background: #FEF0E7; color: #F97316; }
+.pax-btn:hover { border-color: rgba(249,115,22,0.4); color: var(--st-orange); }
+.pax-btn--active { border-color: var(--st-orange); background: #FEF0E7; color: var(--st-orange); }
 
-/* Ações */
+/* Categorias de veiculo */
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+@media(max-width:640px){ .cat-grid { grid-template-columns: 1fr; } }
+
+.cat-card {
+  padding: 18px 16px;
+  border-radius: 14px;
+  border: 1px solid #E5E5E5;
+  background: var(--st-white);
+  cursor: pointer;
+  transition: all .2s;
+  text-align: left;
+}
+.cat-card:hover { border-color: rgba(249,115,22,0.3); background: #FEF0E7; }
+.cat-card--active { border-color: var(--st-orange); background: #FEF0E7; box-shadow: 0 0 0 1px var(--st-orange); }
+.cat-icon {
+  width: 36px; height: 36px; border-radius: 9px;
+  background: #FEF0E7; border: 1px solid rgba(249,115,22,0.25);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 10px;
+}
+.cat-name { font-size: 14px; font-weight: 700; color: var(--st-dark); margin-bottom: 2px; }
+.cat-models { font-size: 12px; color: var(--st-orange); margin-bottom: 4px; font-weight: 500; }
+.cat-desc { font-size: 12px; color: #888888; }
+
+/* Acoes */
 .ride-actions { display: flex; justify-content: flex-end; margin-top: 24px; }
 .ride-actions--spread { justify-content: space-between; }
 .ride-btn-next {
   display: inline-flex; align-items: center; gap: 7px;
   padding: 11px 24px; border-radius: 9999px;
   font-size: 13.5px; font-weight: 700;
-  color: #FFFFFF; background: #F97316;
+  color: #FFFFFF; background: var(--st-orange);
   border: none; cursor: pointer;
   box-shadow: 0 0 20px rgba(249,115,22,0.3);
   transition: background .2s, transform .2s, box-shadow .2s;
 }
-.ride-btn-next:hover:not(:disabled) { background: #EA580C; transform: translateY(-1px); }
+.ride-btn-next:hover:not(:disabled) { background: var(--st-orange-dark); transform: translateY(-1px); }
 .ride-btn-next:disabled { opacity: 0.45; cursor: not-allowed; }
 .ride-btn-back {
   display: inline-flex; align-items: center;
@@ -934,17 +1234,17 @@ const planCards = [
   border: 1px solid #E5E5E5; cursor: pointer;
   transition: color .18s, border-color .18s;
 }
-.ride-btn-back:hover { color: #1C1C1E; border-color: #BBBBBB; }
+.ride-btn-back:hover { color: var(--st-dark); border-color: #BBBBBB; }
 .ride-btn-submit {
   display: inline-flex; align-items: center; gap: 7px;
   padding: 13px 28px; border-radius: 9999px;
   font-size: 13.5px; font-weight: 800; letter-spacing: .04em;
-  color: #FFFFFF; background: #F97316;
+  color: #FFFFFF; background: var(--st-orange);
   border: none; cursor: pointer;
   box-shadow: 0 0 24px rgba(249,115,22,0.35);
   transition: background .2s, transform .2s, box-shadow .2s;
 }
-.ride-btn-submit:hover:not(:disabled) { background: #EA580C; transform: translateY(-2px); box-shadow: 0 0 36px rgba(249,115,22,0.45); }
+.ride-btn-submit:hover:not(:disabled) { background: var(--st-orange-dark); transform: translateY(-2px); box-shadow: 0 0 36px rgba(249,115,22,0.45); }
 .ride-btn-submit:disabled { opacity: 0.45; cursor: not-allowed; }
 
 /* Sucesso */
@@ -959,9 +1259,9 @@ const planCards = [
   display: inline-flex; align-items: center;
   padding: 10px 22px; border-radius: 9999px;
   font-size: 13px; font-weight: 500;
-  color: #666666; background: #F5F5F5;
+  color: #666666; background: var(--st-gray-light);
   border: 1px solid #E5E5E5; cursor: pointer;
   transition: color .18s, border-color .18s;
 }
-.ride-btn-reset:hover { color: #1C1C1E; border-color: rgba(249,115,22,0.3); }
+.ride-btn-reset:hover { color: var(--st-dark); border-color: rgba(249,115,22,0.3); }
 </style>

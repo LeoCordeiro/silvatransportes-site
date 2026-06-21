@@ -1,4 +1,4 @@
-/* ─── Fluxora fadeSlideIn ─── */
+/* ─── fadeSlideIn ─── */
 @keyframes fadeSlideIn {
   0%   { opacity: 0; transform: translateY(24px); filter: blur(6px); }
   100% { opacity: 1; transform: translateY(0);    filter: blur(0px); }
@@ -33,6 +33,18 @@
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Variante: entrada da direita */
+.reveal-from-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-from-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* ─── Page transition ─── */

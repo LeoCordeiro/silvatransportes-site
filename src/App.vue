@@ -1,7 +1,7 @@
 <template>
   <div class="app-root">
 
-    <!-- ─── Background cinematográfico fixo ─── -->
+    <!-- Background fixo -->
     <div class="site-beam-grid" aria-hidden="true">
       <div class="sbg-col"><span class="sbeam sb1"></span></div>
       <div class="sbg-col"><span class="sbeam sb2"></span></div>
@@ -11,17 +11,14 @@
       <div class="sbg-col"></div>
     </div>
 
-    <!-- Chuvinhas de luz caindo (ref: lumina-video) -->
+    <!-- Tracos de luz -->
     <div class="site-rain" aria-hidden="true">
       <span></span><span></span><span></span><span></span>
       <span></span><span></span><span></span><span></span>
     </div>
 
-    <!-- Glow copper no topo -->
     <div class="site-glow-top" aria-hidden="true"></div>
-    <!-- Glow secundário -->
     <div class="site-glow-bl" aria-hidden="true"></div>
-    <!-- Vinheta lateral fixa — padrão em todo o site incluindo header -->
     <div class="site-vignette" aria-hidden="true"></div>
 
     <Header />
@@ -44,13 +41,23 @@ import Footer from '@/components/Footer.vue'
 </script>
 
 <style>
+/* ─── Paleta Silva Transportes ─── */
+:root {
+  --st-dark: #1C1C1E;
+  --st-orange: #F97316;
+  --st-orange-dark: #EA580C;
+  --st-gray-light: #F5F5F5;
+  --st-white: #FFFFFF;
+  --st-orange-bg: #FEF0E7;
+}
+
 /* ─── Reset global ─── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html, body {
-  background: #FFFFFF;
-  color: #1C1C1E;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: var(--st-white);
+  color: var(--st-dark);
+  font-family: 'Montserrat', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-optical-sizing: auto;

@@ -48,8 +48,8 @@
 
         <!-- Rodapé legal -->
         <div class="legal-footer" v-reveal>
-          <p>WFM Transportes · CNPJ 56.265.821/0001-04 · São Paulo, SP</p>
-          <p>atendimento@wfmtransportes.com.br</p>
+          <p>Silva Transportes · CNPJ 52.815.411/0001-39 · São Paulo, SP</p>
+          <p>atendimentosilvatransportes@intermediacoesb2b.com.br</p>
           <p style="margin-top:4px;font-size:12px;color:#404040">Foro competente: Comarca de São Paulo, SP</p>
         </div>
       </div>
@@ -62,11 +62,11 @@
 const sections = [
   {
     title: 'Modelo de intermediação',
-    text: 'A WFM Transportes atua exclusivamente como intermediária entre empresas contratantes e motoristas parceiros. A empresa contratante paga a mensalidade do plano à WFM Transportes; o valor do repasse ao motorista é acordado individualmente no contrato de parceria e não integra o preço do plano.',
+    text: 'A Silva Transportes atua exclusivamente como intermediária entre empresas contratantes e motoristas parceiros. A empresa contratante paga a mensalidade do plano à Silva Transportes; o valor do repasse ao motorista é acordado individualmente no contrato de parceria e não integra o preço do plano.',
   },
   {
-    title: 'Comissão da WFM Transportes',
-    text: 'A WFM Transportes retém uma comissão de intermediação sobre cada corrida realizada. O percentual exato é definido no contrato de parceria firmado com cada motorista e pode variar conforme o plano da empresa, volume de corridas e perfil do serviço. O percentual é sempre informado antes da assinatura do contrato.',
+    title: 'Comissão da Silva Transportes',
+    text: 'A Silva Transportes retém uma comissão de intermediação sobre cada corrida realizada. O percentual exato é definido no contrato de parceria firmado com cada motorista e pode variar conforme o plano da empresa, volume de corridas e perfil do serviço. O percentual é sempre informado antes da assinatura do contrato.',
   },
   {
     title: 'Repasse ao motorista parceiro',
@@ -74,7 +74,7 @@ const sections = [
   },
   {
     title: 'Apuração e extrato',
-    text: 'A WFM Transportes disponibiliza ao motorista parceiro um extrato detalhado de corridas realizadas, valores brutos, comissão retida e valor líquido a receber. O extrato é enviado por WhatsApp ou e-mail antes de cada repasse.',
+    text: 'A Silva Transportes disponibiliza ao motorista parceiro um extrato detalhado de corridas realizadas, valores brutos, comissão retida e valor líquido a receber. O extrato é enviado por WhatsApp ou e-mail antes de cada repasse.',
   },
   {
     title: 'Cobranças à empresa contratante',
@@ -86,7 +86,7 @@ const sections = [
   },
   {
     title: 'Contestações e ajustes',
-    text: 'Qualquer divergência no extrato deve ser contestada pelo motorista parceiro em até 5 dias úteis após o recebimento. Após esse prazo, o extrato é considerado aceito. A WFM Transportes se compromete a analisar e responder contestações em até 3 dias úteis.',
+    text: 'Qualquer divergência no extrato deve ser contestada pelo motorista parceiro em até 5 dias úteis após o recebimento. Após esse prazo, o extrato é considerado aceito. A Silva Transportes se compromete a analisar e responder contestações em até 3 dias úteis.',
   },
   {
     title: 'Alteração de comissões',
